@@ -11,6 +11,5 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-      nodePort: 8000
   selector:
     {{- include "flarum.selectorLabels" . | nindent 4 }}
