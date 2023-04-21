@@ -24,8 +24,15 @@ serviceAccount:
   name: ""
 
 
-database:
-  user:
+appProperties:
+  volumeClaim: ''
+  database:
+    user: ''
+    name: ''
+    password:
+    host: ''
+    port: 3306
+  baseUrl: ''
 
 podAnnotations: {}
 
