@@ -4,5 +4,9 @@ metadata:
   name: flarum-default-configmap
   namespace: default
 data:
-  SPECIAL_LEVEL: very
-  SPECIAL_TYPE: charm
+  DB_USER: "{{.Values.appProperties.database.user}}"
+  DB_PASSWORD: "{{.Values.appProperties.database.password}}"
+  DB_HOST: "{{.Values.appProperties.database.host}}"
+  DB_NAME: "{{.Values.appProperties.database.name}}"
+  DB_PORT: "{{.Values.appProperties.database.port}}"
+  FLARUM_BASE_URL: "{{.Values.appProperties.baseUrl}}"

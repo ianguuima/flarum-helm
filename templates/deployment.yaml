@@ -30,12 +30,15 @@ spec:
       volumes:
         - name: flarum-pv-storage
           persistentVolumeClaim:
-            claimName: flarum-pv-claim
+            claimName: "{{ .Values.appProperties.volumeClaim }}"
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          envFrom:
+            - configMapRef:
+                name: flarum-default-configmap
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
